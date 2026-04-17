@@ -1,0 +1,17 @@
+# Godot 4.x
+.godot/
+.import/
+*.import
+
+# Export builds
+exports/
+builds/
+
+# OS junk
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+*.swp
+*~
