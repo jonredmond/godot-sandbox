@@ -13,16 +13,11 @@ func _ready() -> void:
 
 func _spawn_pickup() -> void:
 	var pickup := pickup_scene.instantiate()
-
-	# Get the actual viewport size
 	var vp_size := get_viewport_rect().size
-
-	pickup.position = Vector2(
+	var spawn_position := Vector2(
 		randf_range(margin, vp_size.x - margin),
 		randf_range(margin, vp_size.y - margin)
 	)
-
-	# Random color
 	pickup.pickup_color = Color(randf(), randf(), randf())
-
-	add_child(pickup)
+	get_parent().add_child(pickup)
+	pickup.global_position = spawn_position

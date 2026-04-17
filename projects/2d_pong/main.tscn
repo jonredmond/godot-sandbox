@@ -35,6 +35,5 @@ shape = SubResource("RectangleShape2D_lquwl")
 position = Vector2(298, 527)
 
 [node name="Spawner" type="Node2D" parent="." unique_id=1645671792]
-position = Vector2(577, 544)
 script = ExtResource("4_lquwl")
 pickup_scene = ExtResource("3_1bvp3")
