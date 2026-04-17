@@ -1,0 +1,40 @@
+[gd_scene format=3 uid="uid://cbrvjeb030dj1"]
+
+[ext_resource type="Script" uid="uid://d34i8fjgpnrt1" path="res://player.gd" id="1_0xm2m"]
+[ext_resource type="Texture2D" uid="uid://ccbjjjo3yreh4" path="res://icon.svg" id="2_h2yge"]
+[ext_resource type="PackedScene" uid="uid://irddn7g41h50" path="res://pickup.tscn" id="3_1bvp3"]
+[ext_resource type="Script" uid="uid://c4sh8w8vxx77j" path="res://spawner.gd" id="4_lquwl"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1bvp3"]
+size = Vector2(128, 128)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lquwl"]
+size = Vector2(800, 32)
+
+[node name="Main" type="Node2D" unique_id=369094244]
+
+[node name="Player" type="CharacterBody2D" parent="." unique_id=512520743]
+position = Vector2(577, 544)
+script = ExtResource("1_0xm2m")
+speed = 500.0
+
+[node name="Sprite2D" type="Sprite2D" parent="Player" unique_id=1708423477]
+texture = ExtResource("2_h2yge")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player" unique_id=330000089]
+shape = SubResource("RectangleShape2D_1bvp3")
+
+[node name="Wall" type="StaticBody2D" parent="." unique_id=1152453448]
+position = Vector2(577, 544)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Wall" unique_id=981683163]
+position = Vector2(9, 83)
+shape = SubResource("RectangleShape2D_lquwl")
+
+[node name="Pickup" parent="." unique_id=1763900270 instance=ExtResource("3_1bvp3")]
+position = Vector2(298, 527)
+
+[node name="Spawner" type="Node2D" parent="." unique_id=1645671792]
+position = Vector2(577, 544)
+script = ExtResource("4_lquwl")
+pickup_scene = ExtResource("3_1bvp3")
