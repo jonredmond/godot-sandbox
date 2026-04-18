@@ -36,9 +36,9 @@
 - ColorRect vs Sprite2D for prototyping visuals
 
 ### Day 2: Player Movement + Collisions (1–2h)
-- [ ] Make a `Player.tscn` using `CharacterBody2D`.
-- [ ] Add movement, friction, and clamped screen bounds (or walls).
-- [ ] Deliverable: Player moves smoothly and doesn't go through walls.
+- [x] Make a `Player.tscn` using `CharacterBody2D`.
+- [x] Add movement, friction, and clamped screen bounds (or walls).
+- [x] Deliverable: Player moves smoothly and doesn't go through walls.
 
 ### Day 3–4: Microgame #1 — Pong/Breakout (3–5h total)
 - Focus concepts:

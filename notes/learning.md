@@ -29,6 +29,30 @@ Each entry: date, what you worked on, what you learned, one question for next se
 
 ---
 
+### 2026-04-18 — Session 2
+**Project:** playground
+**Worked on:**
+- Extracted the Player into its own `player.tscn` via *Save Branch as Scene*.
+- Replaced instant velocity with acceleration + friction using `move_toward` and `delta`.
+- Added a `Walls` StaticBody2D with four `WorldBoundaryShape2D` children to contain the player at the viewport edges.
+
+**Learned:**
+- Scene instancing and encapsulation (children of an instance are hidden without *Editable Children*).
+- Units matter: `acceleration` / `friction` are px/s², multiplied by `delta` → framerate-independent and unit-meaningful. Avoid unitless `lerp` weights for time-based motion.
+- `move_toward` never overshoots its target — safer than `lerp` for physics.
+- Quick sanity formulas: `time_to_max_speed = max_speed / acceleration`, `time_to_stop = max_speed / friction`.
+- `WorldBoundaryShape2D` is an infinite half-plane — cheap, perfect for screen edges. The *normal* points into the walkable side.
+- `move_and_slide()` handles slide-along-wall behavior automatically; you don't clamp position manually.
+- Answered Session 1's carry-over question: walls > manual clamping — `move_and_slide` gives you slide-along-edge for free, and the same walls will contain the Pong ball later.
+
+**Broke / got stuck:**
+-
+
+**Question for next time:**
+- For Pong, the ball needs to *bounce* off walls, not slide. What's the Godot-idiomatic way — `move_and_collide()` + reflect the velocity, a `PhysicsMaterial` with bounce, or a custom `_on_body_entered` signal on the ball?
+
+---
+
 ### YYYY-MM-DD — Session N
 **Project:** (which project)
 **Worked on:**
