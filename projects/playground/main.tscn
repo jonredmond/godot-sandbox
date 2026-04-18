@@ -4,8 +4,16 @@
 [ext_resource type="PackedScene" uid="uid://irddn7g41h50" path="res://pickup.tscn" id="3_1bvp3"]
 [ext_resource type="Script" uid="uid://c4sh8w8vxx77j" path="res://spawner.gd" id="4_lquwl"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_lquwl"]
-size = Vector2(800, 32)
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_h2yge"]
+normal = Vector2(0, 1)
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_1bvp3"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_lquwl"]
+normal = Vector2(1, 0)
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_7mycd"]
+normal = Vector2(-1, 0)
 
 [node name="Main" type="Node2D" unique_id=369094244]
 
@@ -15,16 +23,25 @@ max_speed = 500.0
 acceleration = 400.0
 friction = 200.0
 
-[node name="Wall" type="StaticBody2D" parent="." unique_id=1152453448]
-position = Vector2(577, 544)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Wall" unique_id=981683163]
-position = Vector2(9, 83)
-shape = SubResource("RectangleShape2D_lquwl")
-
 [node name="Pickup" parent="." unique_id=1763900270 instance=ExtResource("3_1bvp3")]
 position = Vector2(298, 527)
 
 [node name="Spawner" type="Node2D" parent="." unique_id=1645671792]
 script = ExtResource("4_lquwl")
 pickup_scene = ExtResource("3_1bvp3")
+
+[node name="Walls" type="StaticBody2D" parent="." unique_id=2061251848]
+
+[node name="Top" type="CollisionShape2D" parent="Walls" unique_id=1474202708]
+shape = SubResource("WorldBoundaryShape2D_h2yge")
+
+[node name="Bottom" type="CollisionShape2D" parent="Walls" unique_id=1076650990]
+position = Vector2(0, 648)
+shape = SubResource("WorldBoundaryShape2D_1bvp3")
+
+[node name="Left" type="CollisionShape2D" parent="Walls" unique_id=983068851]
+shape = SubResource("WorldBoundaryShape2D_lquwl")
+
+[node name="Right" type="CollisionShape2D" parent="Walls" unique_id=305347780]
+position = Vector2(1152, 0)
+shape = SubResource("WorldBoundaryShape2D_7mycd")
