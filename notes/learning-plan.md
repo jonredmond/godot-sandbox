@@ -124,7 +124,7 @@ godot-sandbox/
     scripts/
   projects/
     playground/        # Day 1 sandbox (done)
-    2d_pong/           # Microgame #1
+    2d_pong/           # Microgame #1 (empty stub)
     2d_shooter/        # Microgame #2
     3d_collectathon/   # Microgame #3
 ```

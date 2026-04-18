@@ -10,7 +10,7 @@ config_version=5
 
 [application]
 
-config/name="2D pong"
+config/name="Playground"
 run/main_scene="uid://cbrvjeb030dj1"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://icon.svg"
