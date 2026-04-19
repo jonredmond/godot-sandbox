@@ -16,7 +16,7 @@ size = Vector2(100, 540)
 [node name="Main" type="Node2D" unique_id=1913527662]
 script = ExtResource("1_h2yge")
 
-[node name="ColorRect" type="ColorRect" parent="." unique_id=577110721]
+[node name="Background" type="ColorRect" parent="." unique_id=577110721]
 offset_right = 960.0
 offset_bottom = 540.0
 color = Color(0, 0, 0, 1)
@@ -52,3 +52,23 @@ shape = SubResource("RectangleShape2D_0xm2m")
 
 [node name="AIPaddle" parent="." unique_id=574394229 instance=ExtResource("4_1bvp3")]
 position = Vector2(920, 270)
+
+[node name="HUD" type="CanvasLayer" parent="." unique_id=2052124090]
+
+[node name="PlayerScore" type="Label" parent="HUD" unique_id=1881867669]
+offset_left = 240.0
+offset_top = 40.0
+offset_right = 320.0
+offset_bottom = 128.0
+theme_override_font_sizes/font_size = 64
+text = "0"
+horizontal_alignment = 1
+
+[node name="AIScore" type="Label" parent="HUD" unique_id=2117710517]
+offset_left = 640.0
+offset_top = 40.0
+offset_right = 720.0
+offset_bottom = 128.0
+theme_override_font_sizes/font_size = 64
+text = "0"
+horizontal_alignment = 1

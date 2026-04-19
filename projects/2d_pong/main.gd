@@ -1,6 +1,9 @@
 extends Node2D
 
 @onready var _ball: Node2D = $Ball
+@onready var _player_score_label: Label = $HUD/PlayerScore
+@onready var _ai_score_label: Label = $HUD/AIScore
+
 
 var player_score: int = 0
 var ai_score: int = 0
@@ -20,10 +23,10 @@ func _on_right_goal(_body: Node2D) -> void:
 	_reset_round()
 	
 func _reset_round() -> void:
-	print("Player: ", player_score, "  AI: ", ai_score)
+	_update_scores()
 	_ball.global_position = Vector2(480, 270)
 	_ball.launch()
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
+func _update_scores() -> void:
+	_player_score_label.text = str(player_score)
+	_ai_score_label.text = str(ai_score)
