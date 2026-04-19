@@ -1,20 +1,20 @@
 [gd_scene format=3 uid="uid://boel5iabt5sp5"]
 
+[ext_resource type="Script" uid="uid://cik5v4r48phxr" path="res://main.gd" id="1_h2yge"]
 [ext_resource type="PackedScene" uid="uid://o4q56uvnx882" path="res://ball.tscn" id="1_ig7tw"]
 [ext_resource type="PackedScene" uid="uid://g8ba15jnrtl7" path="res://paddle.tscn" id="2_0xm2m"]
+[ext_resource type="PackedScene" uid="uid://bn4wevkqo6rb2" path="res://ai_paddle.tscn" id="4_1bvp3"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_ig7tw"]
 normal = Vector2(0, 1)
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_h2yge"]
 
-[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_1bvp3"]
-normal = Vector2(1, 0)
-
-[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_0xm2m"]
-normal = Vector2(-1, 0)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0xm2m"]
+size = Vector2(100, 540)
 
 [node name="Main" type="Node2D" unique_id=1913527662]
+script = ExtResource("1_h2yge")
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=577110721]
 offset_right = 960.0
@@ -30,15 +30,25 @@ shape = SubResource("WorldBoundaryShape2D_ig7tw")
 position = Vector2(0, 540)
 shape = SubResource("WorldBoundaryShape2D_h2yge")
 
-[node name="Left" type="CollisionShape2D" parent="Walls" unique_id=820795741]
-shape = SubResource("WorldBoundaryShape2D_1bvp3")
-
-[node name="Right" type="CollisionShape2D" parent="Walls" unique_id=653536099]
-position = Vector2(960, 0)
-shape = SubResource("WorldBoundaryShape2D_0xm2m")
-
 [node name="Ball" parent="." unique_id=1385947836 instance=ExtResource("1_ig7tw")]
 position = Vector2(480, 270)
 
 [node name="PlayerPaddle" parent="." unique_id=2143316467 instance=ExtResource("2_0xm2m")]
 position = Vector2(40, 270)
+
+[node name="LeftGoal" type="Area2D" parent="." unique_id=1446473691]
+position = Vector2(-50, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LeftGoal" unique_id=237286052]
+position = Vector2(0, 270)
+shape = SubResource("RectangleShape2D_0xm2m")
+
+[node name="RightGoal" type="Area2D" parent="." unique_id=1771789777]
+position = Vector2(1010, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RightGoal" unique_id=2013424586]
+position = Vector2(0, 270)
+shape = SubResource("RectangleShape2D_0xm2m")
+
+[node name="AIPaddle" parent="." unique_id=574394229 instance=ExtResource("4_1bvp3")]
+position = Vector2(920, 270)
