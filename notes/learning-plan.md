@@ -45,7 +45,7 @@
   - Signals (ball hits paddle, score updates)
   - UI (Label for score)
   - Scene instancing (Ball, Paddle)
-- [ ] Deliverable: Start screen → play → score → reset/restart loop.
+- [x] Deliverable: Start screen → play → score → reset/restart loop.
 
 ### Day 5: Polish + Packaging (1–2h)
 - [ ] Add simple sound, pause, and a tiny settings menu (volume slider optional).
