@@ -1,8 +1,40 @@
 [gd_scene format=3 uid="uid://boel5iabt5sp5"]
 
+[ext_resource type="PackedScene" uid="uid://o4q56uvnx882" path="res://ball.tscn" id="1_ig7tw"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_ig7tw"]
+normal = Vector2(0, 1)
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_h2yge"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_1bvp3"]
+normal = Vector2(1, 0)
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_0xm2m"]
+normal = Vector2(-1, 0)
+
 [node name="Main" type="Node2D" unique_id=1913527662]
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=577110721]
 offset_right = 960.0
 offset_bottom = 540.0
 color = Color(0, 0, 0, 1)
+
+[node name="Walls" type="StaticBody2D" parent="." unique_id=1111182738]
+
+[node name="Top" type="CollisionShape2D" parent="Walls" unique_id=1456638459]
+shape = SubResource("WorldBoundaryShape2D_ig7tw")
+
+[node name="Bottom" type="CollisionShape2D" parent="Walls" unique_id=1102968537]
+position = Vector2(0, 540)
+shape = SubResource("WorldBoundaryShape2D_h2yge")
+
+[node name="Left" type="CollisionShape2D" parent="Walls" unique_id=820795741]
+shape = SubResource("WorldBoundaryShape2D_1bvp3")
+
+[node name="Right" type="CollisionShape2D" parent="Walls" unique_id=653536099]
+position = Vector2(960, 0)
+shape = SubResource("WorldBoundaryShape2D_0xm2m")
+
+[node name="Ball" parent="." unique_id=1385947836 instance=ExtResource("1_ig7tw")]
+position = Vector2(480, 270)
