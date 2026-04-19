@@ -2,9 +2,6 @@ extends CharacterBody2D
 
 
 @export var speed: float = 400.0
-
-func _ready() -> void:
-	launch()
 	
 func launch() -> void:
 	# Pick a random angle within 45 degrees of horizontal, on either side.
@@ -13,6 +10,9 @@ func launch() -> void:
 		angle += PI
 	
 	velocity = Vector2(cos(angle), sin(angle)) * speed
+
+func stop() -> void:
+	velocity = Vector2.ZERO
 
 func _physics_process(delta: float) -> void:
 	var collision: KinematicCollision2D = move_and_collide(velocity * delta)
