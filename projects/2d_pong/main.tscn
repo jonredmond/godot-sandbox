@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://boel5iabt5sp5"]
 
 [ext_resource type="PackedScene" uid="uid://o4q56uvnx882" path="res://ball.tscn" id="1_ig7tw"]
+[ext_resource type="PackedScene" uid="uid://g8ba15jnrtl7" path="res://paddle.tscn" id="2_0xm2m"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_ig7tw"]
 normal = Vector2(0, 1)
@@ -38,3 +39,6 @@ shape = SubResource("WorldBoundaryShape2D_0xm2m")
 
 [node name="Ball" parent="." unique_id=1385947836 instance=ExtResource("1_ig7tw")]
 position = Vector2(480, 270)
+
+[node name="PlayerPaddle" parent="." unique_id=2143316467 instance=ExtResource("2_0xm2m")]
+position = Vector2(40, 270)
